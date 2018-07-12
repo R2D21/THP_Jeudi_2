@@ -1,3 +1,4 @@
+# coding: utf-8
 require "nokogiri"
 require "open-uri"
 
@@ -45,39 +46,42 @@ end
 def     create_array_hash(first_name,last_name,emails)
   array = []
   my_hash = {}
-  first_name.each_with_index do |elem, index|
-    my_hash = {:first_name => first_name,:last_name => last_name,:email => emails}
-    puts "#{my_hash}"
+  i = 0;
+  while i < first_name.size
+    my_hash = {:first_name => first_name[i],:last_name => last_name[i],:email => emails[i]}
     array.push(my_hash);
+    i +=1
   end
   return array
 end
 
 def     perform
 
+  # last_name = ["Manuel", "Laurence", "Pierre", "Michèle", "Olivier", "Francis", "Patrice", "Marie-Christine", "Charles"]
+  # first_name = ["Jean-Pierre", "Jeanine", "Jacqueline", "Marianne", "Christelle", "Coralie", "Nicole", "Virginie", "Audrey"]
+  # emails = "cecile.rilhac@assemblee-nationale.fr", "veronique.riotton@assemblee-nationale.fr", "stephanie.rist@assemblee-nationale.fr", "marie-pierre.rixain@assemblee-nationale.fr", "mireille.robert@assemblee-nationale.fr", "vincent.rolland@assemblee-nationale.fr", "laetitia.romeirodias@assemblee-nationale.fr", "xavier.roseren@assemblee-nationale.fr", "laurianne.rossi@assemblee-nationale.fr"
+  links = []
   last_name = []
   first_name = []
-  links = []
   emails = []
   my_hash_array = []
   i = 0;
   deputes_names.each do |word|
     last_name[i] = word.split(' ')[2]
     first_name[i] = word.split(' ')[1]
-    puts last_name[i]
-    puts first_name[i]
     i +=1
   end
   i = 0;
   deputes_url.each do |word|
     emails[i] = get_email(word)
-    puts emails[i]
     i +=1
   end
   my_hash_array = create_array_hash(first_name,last_name,emails)
-  # my_hash_array.each do |array|
-  #   puts "#{array}"
-  # end
+  my_hash_array.each do |array|
+    puts "#{array}"
+  end
 end
+# ["cecile.rilhac@assemblee-nationale.fr"], ["veronique.riotton@assemblee-nationale.fr"], ["stephanie.rist@assemblee-nationale.fr"], ["marie-pierre.rixain@assemblee-nationale.fr"], ["mireille.robert@assemblee-nationale.fr"], ["vincent.rolland@assemblee-nationale.fr"], ["laetitia.romeirodias@assemblee-nationale.fr"], ["xavier.roseren@assemblee-nationale.fr"], ["laurianne.rossi@assemblee-nationale.fr"]
+# Jean-Pierre", "Jeanine", "Jacqueline", "Marianne", "Christelle", "Coralie", "Nicole", "Virginie", "Audrey",
 
 perform
