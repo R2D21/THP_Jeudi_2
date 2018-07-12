@@ -1,6 +1,7 @@
 # coding: utf-8
 require "nokogiri"
 require "open-uri"
+require 'progress_bar'
 
 @page_url = "http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
 
@@ -73,7 +74,12 @@ def     perform
   end
   i = 0;
   deputes_url.each do |word|
+  bar = ProgressBar.new
     emails[i] = get_email(word)
+    100.times do
+      sleep 0.1
+      bar.increment!
+    end
     i +=1
   end
   my_hash_array = create_array_hash(first_name,last_name,emails)
