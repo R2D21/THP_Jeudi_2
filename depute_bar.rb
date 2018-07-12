@@ -58,9 +58,6 @@ end
 
 def     perform
 
-  # last_name = ["Manuel", "Laurence", "Pierre", "Michèle", "Olivier", "Francis", "Patrice", "Marie-Christine", "Charles"]
-  # first_name = ["Jean-Pierre", "Jeanine", "Jacqueline", "Marianne", "Christelle", "Coralie", "Nicole", "Virginie", "Audrey"]
-  # emails = "cecile.rilhac@assemblee-nationale.fr", "veronique.riotton@assemblee-nationale.fr", "stephanie.rist@assemblee-nationale.fr", "marie-pierre.rixain@assemblee-nationale.fr", "mireille.robert@assemblee-nationale.fr", "vincent.rolland@assemblee-nationale.fr", "laetitia.romeirodias@assemblee-nationale.fr", "xavier.roseren@assemblee-nationale.fr", "laurianne.rossi@assemblee-nationale.fr"
   links = []
   last_name = []
   first_name = []
@@ -73,11 +70,19 @@ def     perform
     i +=1
   end
   i = 0;
+  i_end = 0
   deputes_url.each do |word|
   bar = ProgressBar.new
     emails[i] = get_email(word)
-    puts emails[i]
-    i +=1
+      puts " ________________________________________________________________________________________________________________________________________________"
+      puts "|                                                                                                                                                |"
+      puts "|#{emails[i]}                                                                                                          |"
+      puts "|________________________________________________________________________________________________________________________________________________|"
+      i +=1
+    100.times do
+      sleep 0.01
+      bar.increment!
+    end
   end
   my_hash_array = create_array_hash(first_name,last_name,emails)
   my_hash_array.each do |array|
