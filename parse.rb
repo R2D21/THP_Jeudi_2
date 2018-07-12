@@ -47,7 +47,6 @@ end
 def     check_country(links)
   i = 0;
   links.each do |word|
-    # word.each_char do |number|
     if word.include?("val-d-oise")
       return (i);
     end

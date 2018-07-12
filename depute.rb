@@ -57,10 +57,6 @@ def     create_array_hash(first_name,last_name,emails)
 end
 
 def     perform
-
-  # last_name = ["Manuel", "Laurence", "Pierre", "Michèle", "Olivier", "Francis", "Patrice", "Marie-Christine", "Charles"]
-  # first_name = ["Jean-Pierre", "Jeanine", "Jacqueline", "Marianne", "Christelle", "Coralie", "Nicole", "Virginie", "Audrey"]
-  # emails = "cecile.rilhac@assemblee-nationale.fr", "veronique.riotton@assemblee-nationale.fr", "stephanie.rist@assemblee-nationale.fr", "marie-pierre.rixain@assemblee-nationale.fr", "mireille.robert@assemblee-nationale.fr", "vincent.rolland@assemblee-nationale.fr", "laetitia.romeirodias@assemblee-nationale.fr", "xavier.roseren@assemblee-nationale.fr", "laurianne.rossi@assemblee-nationale.fr"
   links = []
   last_name = []
   first_name = []
@@ -74,7 +70,6 @@ def     perform
   end
   i = 0;
   deputes_url.each do |word|
-  bar = ProgressBar.new
     emails[i] = get_email(word)
     puts emails[i]
     i +=1
@@ -84,7 +79,5 @@ def     perform
     puts "#{array}"
   end
 end
-# ["cecile.rilhac@assemblee-nationale.fr"], ["veronique.riotton@assemblee-nationale.fr"], ["stephanie.rist@assemblee-nationale.fr"], ["marie-pierre.rixain@assemblee-nationale.fr"], ["mireille.robert@assemblee-nationale.fr"], ["vincent.rolland@assemblee-nationale.fr"], ["laetitia.romeirodias@assemblee-nationale.fr"], ["xavier.roseren@assemblee-nationale.fr"], ["laurianne.rossi@assemblee-nationale.fr"]
-# Jean-Pierre", "Jeanine", "Jacqueline", "Marianne", "Christelle", "Coralie", "Nicole", "Virginie", "Audrey",
 
 perform

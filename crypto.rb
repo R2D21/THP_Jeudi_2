@@ -11,7 +11,6 @@ def     get_price(page_url, search)
   i = 0;
   page = Nokogiri::HTML(open(page_url))
   news_links = page.css(search)
-  # puts news_links
   news_links.each do |link|
     links[i] = link['data-usd']
     i +=1;
