@@ -1,7 +1,6 @@
 # coding: utf-8
 require "nokogiri"
 require "open-uri"
-require 'progress_bar'
 
 @page_url = "http://www2.assemblee-nationale.fr/deputes/liste/alphabetique"
 
